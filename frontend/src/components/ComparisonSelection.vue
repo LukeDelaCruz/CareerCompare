@@ -3,6 +3,8 @@ import axios from 'axios';
 import { defineComponent, reactive, computed } from 'vue';
 import { isValidEmail, isValidPhone } from '../utils/form';
 
+const API_BASE_URL = process.env.VUE_APP_API_BASE_URL;
+
 export default defineComponent({
   name: 'ComparisonSelection',
   setup() {
@@ -24,12 +26,14 @@ export default defineComponent({
 
     const submitForm = async () => {
       if (isFormInvalid.value) {
+        alert('Invalid input!');
         // Handle error (e.g., show a message to the user)
         return;
       }
 
       try {
-        await axios.post('YOUR_BACKEND_ENDPOINT_HERE', form);
+        console.log(`${API_BASE_URL}/submitComparisonTableChoices`);
+        await axios.post(`${API_BASE_URL}/submitComparisonTableChoices`, form);
         alert('Thanks for submitting!');
 
         // Reset form data
@@ -37,9 +41,11 @@ export default defineComponent({
         form.phone = '';
         form.selectedProducts = [];
       } catch (error) {
+        console.log(error);
         alert('Failed to submit!');
       }
     };
+
     return {
       form,
       isFormInvalid,
