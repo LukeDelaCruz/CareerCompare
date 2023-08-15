@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkfrontend"]=self["webpackChunkfrontend"]||[]).push([[963],{6963:function(e,n,r){r.r(n),r.d(n,{default:function(){return s}});var t=r(3396);const o=(0,t._)("h1",null,"Welcome to CareerCompare!",-1),u=(0,t._)("p",null," We're glad you're here to view your options that take your career to the next level! ",-1),a=[o,u];function l(e,n,r,o,u,l){return(0,t.wg)(),(0,t.iD)("div",null,a)}var c=(0,t.aZ)({name:"Home"}),f=r(89);const i=(0,f.Z)(c,[["render",l]]);var s=i}}]);
+//# sourceMappingURL=963.1385f3cb.js.map
