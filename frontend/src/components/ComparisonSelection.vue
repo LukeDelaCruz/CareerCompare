@@ -36,6 +36,13 @@ export default defineComponent({
         await axios.post(`${API_BASE_URL}/submitComparisonTableChoices`, form);
         alert('Thanks for submitting!');
 
+        // Push an event to the dataLayer to notify GTM
+        (window as any).dataLayer = (window as any).dataLayer || [];
+        (window as any).dataLayer.push({
+          event: 'submitComparisonTableChoices',
+          conversionType: [...form.selectedProducts].sort().join(', '), // Change this based on the specific conversion type
+        });
+
         // Reset form data
         form.email = '';
         form.phone = '';
