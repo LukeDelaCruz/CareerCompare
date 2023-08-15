@@ -9,8 +9,8 @@ export default defineComponent({
   name: 'ComparisonSelection',
   setup() {
     const form = reactive({
-      email: '',
-      phone: '',
+      email: 'test@gmail.com',
+      phone: '1234567890',
       selectedProducts: [],
     });
 
