@@ -32,7 +32,6 @@ export default defineComponent({
       }
 
       try {
-        console.log(`${API_BASE_URL}/submitComparisonTableChoices`);
         await axios.post(`${API_BASE_URL}/submitComparisonTableChoices`, form);
         alert('Thanks for submitting!');
 
@@ -48,7 +47,6 @@ export default defineComponent({
         form.phone = '';
         form.selectedProducts = [];
       } catch (error) {
-        console.log(error);
         alert('Failed to submit!');
       }
     };
