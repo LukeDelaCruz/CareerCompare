@@ -1,17 +1,16 @@
 <script lang="ts">
 import axios from 'axios';
 import { defineComponent, reactive, computed } from 'vue';
-import { isValidEmail, isValidPhone } from '../utils/form.ts';
+import { isValidEmail, isValidPhone } from '../utils/form';
 
 export default defineComponent({
   name: 'ComparisonSelection',
   setup() {
-    const defaultState = {
+    const form = reactive({
       email: '',
       phone: '',
       selectedProducts: [],
-    };
-    const form = reactive(defaultState);
+    });
 
     const isFormInvalid = computed(() => {
       return (
@@ -30,7 +29,7 @@ export default defineComponent({
       }
 
       try {
-        await axios.post('YOUR_BACKEND_ENDPOINT_HERE', form.value);
+        await axios.post('YOUR_BACKEND_ENDPOINT_HERE', form);
         alert('Thanks for submitting!');
 
         // Reset form data
