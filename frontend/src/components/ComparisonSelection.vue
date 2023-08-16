@@ -32,7 +32,10 @@ export default defineComponent({
       }
 
       try {
-        await axios.post(`${API_BASE_URL}/submitComparisonTableChoices`, form);
+        await axios.post(
+          `${API_BASE_URL}/submit-comparison-table-choices`,
+          form
+        );
         alert('Thanks for submitting!');
 
         // Push an event to the dataLayer to notify GTM

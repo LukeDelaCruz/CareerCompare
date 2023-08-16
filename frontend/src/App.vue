@@ -1,9 +1,35 @@
 <script lang="ts">
+import axios from 'axios';
+import { clearURLParameters, captureTrackingData } from './utils/url';
 import { defineComponent } from 'vue';
+import { TrackingData } from '@/types/tracking';
 import { useRouter } from 'vue-router';
+
+const API_BASE_URL = process.env.VUE_APP_API_BASE_URL;
 
 export default defineComponent({
   name: 'App',
+  mounted() {
+    this.captureAndClearUtmParameters();
+  },
+  methods: {
+    captureAndClearUtmParameters() {
+      const utmData = captureTrackingData();
+      if (utmData && !sessionStorage.getItem('trackedUserData')) {
+        this.sendTrackingDataToBackend(utmData);
+      }
+    },
+    sendTrackingDataToBackend(data: TrackingData) {
+      axios
+        .post(`${API_BASE_URL}/track-user-data`, data)
+        .then(() => {
+          // Prevents sending tracked data to the server on each page refresh
+          sessionStorage.setItem('trackedUserData', 'true');
+          clearURLParameters();
+        })
+        .catch((error) => console.error('Error sending data:', error));
+    },
+  },
   setup() {
     const router = useRouter();
 
