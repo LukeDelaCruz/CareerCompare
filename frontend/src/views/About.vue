@@ -9,7 +9,7 @@ export default defineComponent({
 <template>
   <div>
     <h1>About Us</h1>
-    <p>We offer the best career evaluations for you.</p>
+    <p>We offer the best career evaluation software for you.</p>
   </div>
 </template>
 

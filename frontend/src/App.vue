@@ -72,7 +72,7 @@ body {
 #app {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 17px 20px 20px 20px;
 }
 
 /* Style the navbar */
