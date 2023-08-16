@@ -4,4 +4,5 @@ export type TrackingData = {
   utmCampaign: string | null;
 
   userAgent: string;
+  userLanguages: string;
 };

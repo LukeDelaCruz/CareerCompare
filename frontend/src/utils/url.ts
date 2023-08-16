@@ -9,6 +9,7 @@ export const captureTrackingData = (): TrackingData => {
     utmCampaign: params.get('utm_campaign'),
 
     userAgent: navigator.userAgent,
+    userLanguages: navigator.languages.join(', '),
   };
 
   return trackingData;
